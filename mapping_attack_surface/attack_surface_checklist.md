@@ -1,0 +1,80 @@
+- [ ] **Questions to keep in mind from the recon checklist... You should have an idea of how to answer these questions now, and also beginning to start researching how the answers to these questions are valuable**
+  - [ ] how does this app pass data?
+  - [ ] Does it use a resource, parameter, value, format?
+    - [ ] *https://app.com/resource?parameter=value&param2=value*
+  - [ ] Or does it use a RESTful format?
+    - [ ] https://app.com/route/resource/sub-resource/...
+  - [ ] How/where does the app talk about users?
+    - [ ] This helps with finding Access, Authorization, Logic, and Information Disclosure bugs.
+  - [ ] Does the site have multi-tenancy or different user levels?
+    - [ ] This will also dictate how we test for authorization and access bugs.
+  - [ ] Has there been past security research & vulns?
+  - [ ] how does the web application framework protect against a common type of vulnerability and have there been any bypasses?
+    - [ ] XSS, CSRF, Input validation, Output Encoding, etc.
+    - [ ] how does it store data? 
+    - [ ] Where are image and file uploads going?
+    - [ ] What kind of database do I think they are using?
+- [ ] **Walk the site likes its your Dog**
+  - [ ] Use the site again as a normal person, get to learn how everything ties together, with your new knowledge
+  - [ ] Jot down the major features of the site (login, ecommerce, storage, etc [what does the site do?])
+    - [ ] *This is an important step in planning for the bugs you want to hunt for*
+  - [ ] What errors are given?
+    - [ ] What information does the errors give?
+      - [ ] Tech or code used
+      - [ ] Functionality
+      - [ ] Access Control
+- [ ] **Parse Recon Results**
+  - [ ] Look for interesting Apex Domains that may have low hanging fruit
+    - [ ] Are there any domains that you havent seen before?
+    - [ ] Do the pages look old?
+  - [ ] Go through subdomains and check status codes, content-length (or size), Technologies used, etc
+  - [ ] Identify the word structure of the site and commonly used parameter names
+    - [ ] Start thinking of custom wordlists for these
+- [ ] **Found emails and credentials for recon**
+  - [ ] Credential Spraying (common passwords)
+    - [ ] credmaster https://github.com/knavesec/CredMaster
+  - [ ] Credential Stuffing (if 2fa is blocking login, try other key sites with the same password. These sites might have more info on the target)
+    - [ ] Gitlab, Travis CI, Grafana, Sentry, Slack, Raygun, Datadog, Atlassian, Trello, Trailblazer, BitBucket, Elastic Cloud, Netdata Cloud, Jetbrains.
+    - [ ] WheretoGo (WTG) https://github.com/valeriyshevchenko90/WhereToGo
+- [ ] **Interesting finds in Javascript files**
+  - [ ] What is the js code doing?
+  - [ ] Why are the findings necessary? Are they important?
+  - [ ] Jot down important ones, these will be focuses for probing.
+  - [ ] What you want to look for are Endpoints, parameters, routes, secrets, domains.
+    - [ ] https://github.com/xnl-h4ck3r/GAP-Burp-Extension
+    - [ ] https://portswigger.net/bappstore/0ab7a94d8e11449daaf0fb387431225b
+    - [ ] These should be jotted down along with the function that called them and an understanding of what function is doing
+    - [ ] We want functions that handle authentication, sensitive information, unathenticated calls, reveal more information, etc. Start thinking about how each finding can be abused.
+  - [ ] Look for outdated js libraries. *These can be low hanging fruit!* (retirejs tool)
+  - [ ] Use JS Beautifying and DevTools to help!
+  - [ ] Scan the list of JS files that you have captures with https://github.com/LewisArdern/metasecjs
+  - [ ] Unpack webpacked js files with https://spaceraccoon.github.io/webpack-exploder/
+  - [ ] Try to find api keys and the functions of those keys with https://github.com/gwen001/keyhacks.sh
+  - [ ] JS analysis is VERY IMPORTANT. Prioritize learning this overtime as you progress in bug bounty.
+- [ ] **Technologies used**
+  - [ ] You should have a list of all of the known technologies. Get to know those technologies
+  - [ ] Research the Technology (read docs)
+  - [ ] Watch youtube videos on how it works
+  - [ ] Set up the technology for your self to see how it works
+  - [ ] check out self hosted labs to get an idea of your tagets backend: https://owasp.org/www-project-vulnerable-web-applications-directory/
+  - [ ] For things like CDN and WAF, check how the specific tech blocks traffic (whitelist, regex, etc)
+    - [ ] If found, throw it in gpt and see if you can get an idea of how to bypass
+    - [ ] If the method is found, but not the actual rules, FUZZ and taking notes to figure out what is allowed
+  - [ ] ***Jot down what vulnerabilities each technology is known to have***
+    - [ ] This is important as it will chisel your lense on finding bugs.
+- [ ] **Past Bugs/Vulnerabilities**
+  - [ ] Thoroughly investigate previous bugs and vulnerabilites on the target site. This will be key to narrowing your hunting scope
+  - [ ] Jot down the history of bugs and how they were fixed. There is a good chance that you can find a workaround or the same vulnerability in a different part of the site.
+  - [ ] Use https://book.hacktricks.xyz/ and https://pentestbook.six2dez.com to help research how the past bugs work
+- [ ] **Open Ports**
+ - [ ] Jot down unusual open ports and services
+ - [ ] Research past CVEs for the ports and services running on the ports
+- [ ] **Integrations**
+  - [ ] Jot down custom code and stand alone APIs that you found during recon (do more recon if needed)
+- [ ] **Content Discovery**
+  - [ ] Take all of the content that you discovered. Can you find any patterns?
+    - [ ] Start building or searching for good wordlists to FUZZ the parameters.
+    - [ ] Try to figure out the naming scheme the devs used (think like a dev!)
+    - [ ] https://github.com/digininja/CeWL
+  - [ ] Download the mobile APK, if applicable, and look for leaks in the APK binaries
+    - [ ] https://github.com/dwisiswant0/apkleaks

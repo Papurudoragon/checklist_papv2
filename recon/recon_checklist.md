@@ -2,6 +2,24 @@
 - [ ] Read the Policy
 - [ ] Start recon - [KingOfBugBountyTips](https://github.com/jhaddix/KingOfBugBountyTips)
 - [ ] Pull out the Notes (I use xmind and excel)
+- [ ] **Questions to keep in mind**
+  - [ ] how does this app pass data?
+  - [ ] Does it use a resource, parameter, value, format?
+    - [ ] *https://app.com/resource?parameter=value&param2=value*
+  - [ ] Or does it use a RESTful format?
+    - [ ] https://app.com/route/resource/sub-resource/...
+  - [ ] How/where does the app talk about users?
+    - [ ] This helps with finding Access, Authorization, Logic, and Information Disclosure bugs.
+  - [ ] Does the site have multi-tenancy or different user levels?
+    - [ ] This will also dictate how we test for authorization and access bugs.
+  - [ ] Has there been past security research & vulns?
+  - [ ] how does the web application framework protect against a common type of vulnerability and have there been any bypasses?
+    - [ ] XSS, CSRF, Input validation, Output Encoding, etc.
+    - [ ] how does it store data? 
+    - [ ] Where are image and file uploads going?
+    - [ ] What kind of database do I think they are using?
+- [ ] **Walk the Site**
+  - [ ] Just casually browser and see how the site works.
 - [ ] **Subdomain Enumeration**
   - [ ] Find double subdomains
   - [ ] Use excel for large subdomains and mindmaps for other things
@@ -40,6 +58,8 @@
     - [ ] RESTful
     - [ ] GraphQL
     - [ ] SOAP
+- [ ] **Find JS files**
+  - [ ] We want to eventually search those for Endpoints, parameters, routes, secrets, domains.
 - [ ] **Filter for parameters in burp/zap and scan for param vulns.**
 - [ ] Data Exposure Dorking with google and github
 - [ ] **Find Technologies used:**
@@ -49,8 +69,17 @@
   - [ ] nmap, naabu, masscan, etc
 - [ ] **Endpoint Detection**
 - [ ] **Content Discovery**
-  - [ ] Waymore for wayback machine parsing
-  - [ ] Analyze 401 with wayback to see if auth didn’t exist at one point
+  - [ ] Jot down all of the kinds of content you discovered
+  - [ ] This includes: profile section, integration functions, paid functions, api calls (authenticated and unauthenticated), upload/export functions, undocumented api calls and admin tools, Multiple User Levels, Customer Data, Persistent User Input, Reflective Values, Hidden Forms, etc.
+  - [ ] Start thinking about and researching how each discovery can be exploited. Right down possible exploitation paths, and what has been done in the past.
+  - [ ] Check is the app is open source or COTS. 
+    - [ ] If there is a Demo, source code, leaked code, etc. Then download the code and run it. Figure out how it is working.
+    - [ ] Use source2URL to port the application through burp to figure out how it is working
+    - [ ] For COTS, there is a good chance that there are DEMOS, reach out and see if you can get admin access to a demo.
+      - [ ] If you do, grab all of the paths, routes, and parameters when proxying. These will be added to the potential attack vector.
+    - [ ] Sometimes, COTS source code is posted on https://hub.docker.com/ . Search there to see if its leaked.
+  - [ ] Search sources that archive historical data.
+    - [ ] https://github.com/xnl-h4ck3r/waymore
 - [ ] **Identify and document Data entry points and search params**
     - [ ] login forms
     - [ ] signup forms
@@ -64,13 +93,14 @@
     - [ ] hidden fields
     - [ ] comment sections
     - [ ] etc
-- [ ] **Brute force recursive directories to get passed 401**
-    - [ ] if example.com/search is 403, then maybe futher down would work, like example.com/search/users
+- [ ] **Jot down 401**
+  - [ ] sometimes we can Brute force recursive directories to get passed 401
+    - [ ] for exampled, if example.com/search is 401, then maybe futher down would work, like example.com/search/users
 - [ ] **APK info disclosure (APKLeaks)**
 - [ ] **Identify Hidden Content**
     - [ ] https://github.com/Papurudoragon/XnlReveal
 - [ ] **Ask questions**
-  - [ ] Does the app pass data?
+  - [ ] How Does the app pass data?
   - [ ] How/where does the app talk to users?
   - [ ] Does the app have mult-tenancy or user levels?
   - [ ] Has there been past security research & vulns?
@@ -81,8 +111,11 @@
 - [ ] **Test for Debug Parameters**
     - [ ] Parameters names like debug, test, log, console, etc.
 - [ ] **Check robots.txt and sitemaps**
-- [ ] **Vuln scan with Nuclei or BurpSuite**
-    - [ ] Custom templates can be found at: https://github.com/Papurudoragon/cent_nuclei_templates
+- [ ] **Vulnerability scanning**
+  - [ ] Nuclei or BurpSuite Pro can help
+  - [ ] Custom templates can be found at: https://github.com/Papurudoragon/cent_nuclei_templates
+  - [ ] AllForOne is a great nuclei template that covers ALL TEMPLATES! https://github.com/AggressiveUser/AllForOne
+  - [ ] ***You can also research new vulns and create templates in nuclei, that has not already been done***
 - [ ] **Check for CVEs**
     - [ ] Nuclei Scan
     - [ ] ExploitDB
@@ -102,6 +135,9 @@
   - [ ] Research which vulns may be applicable
 - [ ] **Ask Key questions to understand the attack surface**
   - [ ] Are there vulnerabilities associated with Proxy, WAF, and/or Technology Used?
+- [ ] **Chatbots!**
+    - [ ] Chatbots should be tested for blind xss
+    - [ ] More importantly, companies are slowing swtiching to AI... keep an eye our for prompt injection :)
 - [ ] **Change Detection for the future**
 
 
