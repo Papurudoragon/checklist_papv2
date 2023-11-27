@@ -1,0 +1,97 @@
+- [ ] Choose Target
+- [ ] Read the Policy
+- [ ] Start recon - [KingOfBugBountyTips](https://github.com/jhaddix/KingOfBugBountyTips)
+- [ ] Pull out the Notes (I use xmind and excel)
+
+- [ ] **Subdomain Enumeration**
+  - [ ] Find double subdomains
+  - [ ] Use excel for large subdomains and mindmaps for other things
+- [ ] **Find email structure**
+  - [ ] Use Hunter.io
+- [ ] **Find emails**
+  - [ ] Check LinkedIn
+  - [ ] Visit dehashed and see if passwords exist to try
+  - [ ] Also visit spycloud.com
+- [ ] **Spider Target**
+  - [ ] BurpSuite, Caido, or Zap
+  - [ ] Run hakrawler to spider and send through proxy
+    - [ ] Use `cat <file_url> | hakrawler -proxy "http://<proxy>:<port>"`
+- [ ] **Directory Brute Force (use VPN)**
+  - [ ] Waymore for passive approach
+    - [ ] Find True IP (if behind WAF IP)
+    - [ ] Find JS Files (spidering)
+- [ ] **If the scope is large**
+  - [ ] Enumerate COTS apps by their favicon with favfreak
+- [ ] **Find APIs**
+    - [ ] RESTful
+    - [ ] GraphQL
+    - [ ] SOAP
+- [ ] **Filter for parameters in burp/zap and scan for param vulns.**
+- [ ] Data Exposure Dorking with google and github
+- [ ] **Find Technologies used:**
+  - [ ] Wappalyzer and/or Builtwith
+- [ ] **Save Live Subdomains (httpx to verify status of subdomains)**
+- [ ] **Port Scan**
+- [ ] **Endpoint Detection**
+- [ ] **Content Discovery**
+  - [ ] Waymore for wayback machine parsing
+  - [ ] Analyze 401 with wayback to see if auth didn’t exist at one point
+- [ ] **Identify and document Data entry points and search params**
+    - [ ] login forms
+    - [ ] signup forms
+    - [ ] search parameters
+    - [ ] interesting parameters
+    - [ ] Contact us
+    - [ ] other forms
+    - [ ] forgot password
+    - [ ] file upload
+    - [ ] file download
+    - [ ] hidden fields
+    - [ ] comment sections
+    - [ ] etc
+- [ ] **Brute force recursive directories to get passed 401**
+    - [ ] if example.com/search is 403, then maybe futher down would work, like example.com/search/users
+- [ ] **APK info disclosure (APKLeaks)**
+- [ ] **Identify Hidden Content**
+    - [ ] https://github.com/Papurudoragon/XnlReveal
+- [ ] **Ask questions**
+  - [ ] Does the app pass data?
+  - [ ] How/where does the app talk to users?
+  - [ ] Does the app have mult-tenancy or user levels?
+  - [ ] Has there been past security research & vulns?
+  - [ ] Does the app have a unique threat model?
+  - [ ] How does the app/framework handle specific vuln classes?
+  - [ ] How does the web app framework protect against a common type of vuln, and have there been any bypasses?
+  - [ ] How does it store data?
+- [ ] **Test for Debug Parameters**
+    - [ ] Parameters names like debug, test, log, console, etc.
+- [ ] **Check robots.txt and sitemaps**
+- [ ] **Vuln scan with Nuclei or BurpSuite**
+    - [ ] Custom templates can be found at: https://github.com/Papurudoragon/cent_nuclei_templates
+- [ ] **Check for CVEs**
+    - [ ] Nuclei Scan
+    - [ ] ExploitDB
+    - [ ] Snyk
+- [ ] **What to look out for:**
+  - [ ] Logins
+  - [ ] Default Content
+  - [ ] Bypass Domains (dev, qa, ww1, ww2)
+  - [ ] 302's
+  - [ ] Basic Auth
+  - [ ] Old looking frameworks
+  - [ ] Outdated Priv Pol / Trademark
+- [ ] **Check for past vulnerabilities and bugs**
+  - [ ] Bounty Platform reports, github, google dorking, etc.
+  - [ ] See if the fix has a bypass
+- [ ] **Start searching for Vulnerabilities from the obtained results from above**
+  - [ ] Research which vulns may be applicable
+- [ ] **Ask Key questions to understand the attack surface**
+  - [ ] Are there vulnerabilities associated with Proxy, WAF, and/or Technology Used?
+- [ ] **Change Detection for the future**
+
+
+***May be helpful:***
+
+- [ ] **Check for new or updated programs:**
+  - [ ] [BBRadar](https://bbradar.io/)
+  - [ ] [Project Discovery Chaos](https://chaos.projectdiscovery.io/#/)
