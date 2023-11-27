@@ -2,10 +2,24 @@
 - [ ] Read the Policy
 - [ ] Start recon - [KingOfBugBountyTips](https://github.com/jhaddix/KingOfBugBountyTips)
 - [ ] Pull out the Notes (I use xmind and excel)
-
 - [ ] **Subdomain Enumeration**
   - [ ] Find double subdomains
   - [ ] Use excel for large subdomains and mindmaps for other things
+  - [ ] Subfinder
+  - [ ] Amass
+  - [ ] Shodan (karma_v2 tool)
+  - [ ] Cloud Recon (https://github.com/g0ldencybersec/CloudRecon)
+  - [ ] Burp Pro
+  - [ ] Google Dorking and Github Dorking
+  - [ ] Brute Forcing Subdomains
+  - [ ] Permutation (https://github.com/projectdiscovery/alterx)
+- [ ] **Identify Apex Domains and IP Ranges**
+  - [ ] Apex domains are domains that are owned by the company, so example.co.sp and example.co.uk
+  - [ ] We find this by looking at a targets ASN.
+    - [ ] https://github.com/expl0itabl3/check_mdi/blob/main/check_mdi.py
+    - [ ] https://bgp.he.net
+    - [ ] https://dnschecker.com
+    - [ ] Reverse whois (https://whoxy.com)
 - [ ] **Find email structure**
   - [ ] Use Hunter.io
 - [ ] **Find emails**
@@ -32,6 +46,7 @@
   - [ ] Wappalyzer and/or Builtwith
 - [ ] **Save Live Subdomains (httpx to verify status of subdomains)**
 - [ ] **Port Scan**
+  - [ ] nmap, naabu, masscan, etc
 - [ ] **Endpoint Detection**
 - [ ] **Content Discovery**
   - [ ] Waymore for wayback machine parsing
