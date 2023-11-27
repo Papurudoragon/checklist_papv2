@@ -67,8 +67,8 @@
   - [ ] Jot down the history of bugs and how they were fixed. There is a good chance that you can find a workaround or the same vulnerability in a different part of the site.
   - [ ] Use https://book.hacktricks.xyz/ and https://pentestbook.six2dez.com to help research how the past bugs work
 - [ ] **Open Ports**
- - [ ] Jot down unusual open ports and services
- - [ ] Research past CVEs for the ports and services running on the ports
+  - [ ] Jot down unusual open ports and services
+  - [ ] Research past CVEs for the ports and services running on the ports
 - [ ] **Integrations**
   - [ ] Jot down custom code and stand alone APIs that you found during recon (do more recon if needed)
 - [ ] **Content Discovery**
