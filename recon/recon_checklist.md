@@ -1,6 +1,7 @@
 - [ ] Choose Target
 - [ ] Read the Policy
 - [ ] Start recon - [KingOfBugBountyTips](https://github.com/jhaddix/KingOfBugBountyTips)
+  - [ ] webcopilot for automation
 - [ ] Pull out the Notes (I use xmind and excel)
 - [ ] **Questions to keep in mind**
   - [ ] how does this app pass data?
